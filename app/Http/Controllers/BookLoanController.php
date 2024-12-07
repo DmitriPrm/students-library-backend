@@ -16,7 +16,7 @@ class BookLoanController extends Controller
         $validatedData = $request->validated();
 
         $validatedData['date_loan'] = Carbon::now();
-        $validatedData['date_return'] = Carbon::now();
+        $validatedData['date_return'] = Carbon::now()->addDays($validatedData['tenure']);
         $validatedData['current_tenure'] = $validatedData['tenure'];
 
         $bookLoan = BookLoan::create($validatedData);
@@ -25,5 +25,10 @@ class BookLoanController extends Controller
 
     public function index() {
         return BookLoanResource::collection(BookLoan::all());
+    }
+
+    public function addTenure(BookLoan $bookLoan) {
+        BookLoan::query()->decrement('current_tenure');
+        return $this->index();
     }
 }

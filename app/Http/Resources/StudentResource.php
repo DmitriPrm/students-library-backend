@@ -14,11 +14,22 @@ class StudentResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $gender;
+        switch ($this->sex) {
+            case 'male':
+                $gender = 'Мужской';
+                break;
+            case 'female':
+                $gender = 'Женский';
+                break;
+            default:
+                $gender = 'Другой';
+        }
         return [
           'id' => $this->id,
           'surname' => $this->surname,
           'name' => $this->name,
-          'sex' => $this->sex,
+          'sex' => $gender,
           'group' => $this->group,
         ];
     }
