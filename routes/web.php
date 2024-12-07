@@ -25,5 +25,6 @@ Route::get('books/{id}', [BookController::class, 'show']);
 Route::post('books', [BookController::class, 'store']);
 
 Route::get('books-loan', [BookLoanController::class, 'index']);
+Route::get('books-loan/create', [BookLoanController::class, 'create']);
 Route::post('books-loan', [BookLoanController::class, 'store']);
 Route::post('books-loan/add-tenure', [BookLoanController::class, 'addTenure']);
