@@ -29,8 +29,8 @@ class BookLoanResource extends JsonResource
         return [
             'books_id' => $bookName,
             'readers_id_stud' => $readerName,
-            'date_loan' => $this->date_loan,
-            'date_return' => $this->date_return,
+            'date_loan' => Carbon::parse($this->date_loan)->format("d.m.Y"),
+            'date_return' => Carbon::parse($this->date_return)->format("d.m.Y"),
             'tenure' => $this->tenure,
             'current_tenure' => $this->current_tenure,
         ];
