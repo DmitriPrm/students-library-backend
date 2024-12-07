@@ -23,12 +23,7 @@ return new class extends Migration
                 ->on('books')
                 ->onDelete('cascade');
             $table->integer("readers_id_stud");
-            $table
-                ->foreign("readers_id_stud")
-                ->references('id')
-                ->on('readers')
-                ->onDelete('cascade');
-            $table->date("date_loadn");
+            $table->date("date_loan");
             $table->date("date_return");
             $table->integer("tenure");
             $table->integer("current_tenure");

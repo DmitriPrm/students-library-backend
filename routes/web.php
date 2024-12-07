@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\BookController;
 use \App\Http\Controllers\StudentController;
+use \App\Http\Controllers\BookLoanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,6 @@ Route::post('students', [StudentController::class, 'store']);
 Route::get('books', [BookController::class, 'index']);
 Route::get('books/{id}', [BookController::class, 'show']);
 Route::post('books', [BookController::class, 'store']);
+
+Route::get('books-loan', [BookLoanController::class, 'index']);
+Route::post('books-loan', [BookLoanController::class, 'store']);
